@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title></title>
+  <link rel="stylesheet" href="S.css">
+</head>
+
+<body>
+  <div id="passwordScreen" class="screen password-screen active">
+    <h2>Contraseña </h2>
+    <div class="input-display" id="inputDisplay">••••••</div>
+    <div class="keypad">
+      <button class="key" onclick="enterDigit('1')">1</button>
+      <button class="key" onclick="enterDigit('2')">2</button>
+      <button class="key" onclick="enterDigit('3')">3</button>
+      <button class="key" onclick="enterDigit('4')">4</button>
+      <button class="key" onclick="enterDigit('5')">5</button>
+      <button class="key" onclick="enterDigit('6')">6</button>
+      <button class="key" onclick="enterDigit('7')">7</button>
+      <button class="key" onclick="enterDigit('9')">9</button>
+      <button class="key" onclick="enterDigit('8')">8</button>
+      <div></div>
+      <button class="key" onclick="enterDigit('0')">0</button>
+      <div></div>
+    </div>
+  </div>
+  <div id="notepadScreen" class="screen">
+    <div class="notepad">
+      <h3>7 de Noviembre 2026 </h3>
+      <h4>Para: Mi +1.73 </h4>
+      <p>
+        Hoy 7 de Noviembre tengo el honor de felicitarte a tus 17 años con el honor de ser tu pareja otro año más, a
+        pesar de mi lejanía este dia quisiera celebrarte como te lo mereces, asi que decidi hacerte esta página donde
+        podrás ver todo lo que siento por ti.
+      </p>
+      <p>
+        A tu lado aprendí lo que es el amor verdadero, ese que se demuestra con acciones, con palabras sinceras
+        y con esos pequeños detalles que hacen la diferencia. No sere las más romantica, pero soy una chica obsesionada
+        por ti y todo lo que representas en mi vida.
+      </p>
+      <p>
+        No sé cómo explicarlo, pero contigo mi corazón está en paz. eres mi alegría diaria
+        y la razón de tantas sonrisas, así como espero que el dia de hoy yo sea al motivo de tu sonrisa y alegría.
+      </p>
+      <p>
+        Te amo ♡
+      </p>
+      <a class="LINKI" href="NA.html">
+        SIGUIENTE →</a>
+    </div>
+  </div>
+  <script>
+    const correctPassword = '180425';
+    let input = '';
+    function enterDigit(digit) {
+      if (input.length < 6) {
+        input += digit;
+      }
+      const display = document.getElementById('inputDisplay');
+      display.textContent = input.padEnd(6, '•');
+      if (input.length === 6) {
+        if (input === correctPassword) {
+          document.getElementById('passwordScreen').classList.remove('active');
+          document.getElementById('notepadScreen').classList.add('active');
+        } else {
+          alert('PISTA, ANIVERSARIO');
+          input = '';
+          display.textContent = '••••••';
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>
